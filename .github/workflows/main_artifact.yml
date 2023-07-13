@@ -23,7 +23,8 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
-      - name: Upload static site content
-      - uses: actions/upload-artifact@v3
+      - name: Accidentally upload to the same artifact via multiple jobs
+        uses: actions/upload-artifact@v3
         with:
-            path: path/to/artifact/world.txt
+          name: my-artifact
+          path: ${{ github.workspace }}
