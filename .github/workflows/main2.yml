@@ -26,5 +26,5 @@ jobs:
       - name: Accidentally upload to the same artifact via multiple jobs
         uses: actions/upload-artifact@v3
         with:
-          name: my-artifact
-          path: ${{ github.workspace }}
+            name: my-artifact ${{ matrix.python-version }}
+            path: ${{ github.workspace }}
